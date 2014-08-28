@@ -38,8 +38,8 @@ body {
 
 .panel {
     position: absolute;
-    left: 0;
-    top: 50%;
+    right: 30px;
+    top: 60%;
     z-index: 50;
     float: left;
     clear: both;
@@ -50,6 +50,9 @@ body {
     overflow: hidden;
     background: #ffffff;
     opacity: 0.8;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; /* future proofing */
 }
 
 .blue {

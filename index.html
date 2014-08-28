@@ -3,8 +3,14 @@
 <head>
     <meta charset="utf-8">
     <title>AngularJS Animate Website</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Optional theme
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+     -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -12,11 +18,11 @@
 
 <img class="logo" src="images/superlogo.png" alt="logo">
 
-<img bg class="fullBg" ng-if="isCurrentPage('home')" src="images/bg00.jpg">
-<img bg class="fullBg" ng-if="isCurrentPage('about')" src="images/bg01.jpg">
-<img bg class="fullBg" ng-if="isCurrentPage('contact')" src="images/bg02.jpg">
+<img bg class="fullBg bg-animation" ng-if="isCurrentPage('home')" src="images/bg00.jpg">
+<img bg class="fullBg bg-animation" ng-if="isCurrentPage('about')" src="images/bg01.jpg">
+<img bg class="fullBg bg-animation" ng-if="isCurrentPage('contact')" src="images/bg02.jpg">
 
-<div class="panel panel-animation" ng-hide="isInTransit" >
+<div class="jumbotron panel panel-animation" ng-hide="isInTransit" >
     <div>
         <h1 class="blue">{{page.label}}</h1>
         <h3>{{page.sublabel}}</h3>
