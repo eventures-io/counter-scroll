@@ -1,29 +1,12 @@
-body {
-    overflow: hidden;
-}
-
 .fullBg {
     position: fixed;
     top: 0;
     left: 0;
 }
 
-.logo {
-    position: absolute;
-    left: 35px;
-    top: 35px;
-    z-index: 100;
-    float: none;
-    clear: both;
-    margin: 0;
-    padding: 0;
-    width: 179px;
-    height: 33px;
-}
-
 .nav {
     position: absolute;
-    right: 35px;
+    left: 15%;
     top: 35px;
     z-index: 110;
     float: none;
@@ -38,23 +21,18 @@ body {
 
 .panel {
     position: absolute;
-    right: 30px;
-    top: 60%;
+    right: 10%;
+    top: 40%;
     z-index: 50;
-    float: left;
-    clear: both;
-    width: 430px;
-    height: 305px;
-    margin: -180px 0 0 0;
-    padding: 35px 35px 15px 35px;
-    overflow: hidden;
+    width: 60%;
+    min-width: 350px;
+    max-width: 700px;
+    min-height: 305px;
+    padding: 35px;
     background: #ffffff;
     opacity: 0.8;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px; /* future proofing */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
-.blue {
-    color: #0088cc;
-}

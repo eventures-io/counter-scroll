@@ -4,7 +4,7 @@ angular.module('website', ['ngAnimate'])
         $scope.pages = {
             'home': { label: 'Home', sublabel: 'Sublabel', content: 'This is page content.' },
             'about': { label: 'About', sublabel: 'Sublabel', content: 'This is page content.' },
-            'contact': { label: 'Contact', sublabel: 'Sublabel', content: 'This is page content.' }
+            'contact': { label: 'Contact', sublabel: 'Sublabel', content: 'This is page content. This is page content.This is page content.This is page content.This is page content.This is page content.This is page content.This is page content.This is page content.This is page content.This is page content.This is page content.This is page content. This is page contentThis is page contentThis is page contentThis is page contentThis is page contentThis is page contentThis is page contentThis is page contentThis is page contentThis is page content' }
         };
 
         $scope.currentPage = 'home';
@@ -67,7 +67,7 @@ angular.module('website', ['ngAnimate'])
             link: linker
         };
     })
-    .animation('.bg-animation', function ($window, $rootScope, TweenMax) {
+    .animation('.bg-animation', function ($window, $rootScope, $document, TweenMax) {
         return {
             enter: function (element, done) {
                 TweenMax.fromTo(element, 0.5, { top: $window.innerHeight}, {top: 0, onStart: function () {
@@ -83,7 +83,7 @@ angular.module('website', ['ngAnimate'])
             }
         };
     })
-    .animation('.panel-animation', function (TweenMax) {
+    .animation('.panel-animation', function (TweenMax, $window, $document) {
         return {
             addClass: function (element, className, done) {
                 if (className == 'ng-hide') {
@@ -96,7 +96,7 @@ angular.module('website', ['ngAnimate'])
             removeClass: function (element, className, done) {
                 if (className == 'ng-hide') {
                     element.removeClass('ng-hide');
-                    TweenMax.fromTo(element, 0.5, { opacity: 0, top: -element.height() }, { opacity: 0.8, top: (window.innerHeight*60)/100 , onComplete: done });
+                    TweenMax.fromTo(element, 0.5, { opacity: 0, top: -element.height() }, { opacity: 0.8, top: (getViewHeight($window, $document)*40)/100 , onComplete: done });
                 }
                 else {
                     done();
@@ -105,3 +105,23 @@ angular.module('website', ['ngAnimate'])
         };
     });
 
+
+
+function getViewHeight($window, $document) {
+    var windowWidth = 0, windowHeight = 0;
+    if( typeof( $window.innerWidth ) == 'number' ) {
+        //Non-IE
+        windowWidth = $window.innerWidth;
+        windowHeight = $window.innerHeight;
+    } else if( $document.documentElement && ( $document.documentElement.clientWidth || $document.documentElement.clientHeight ) ) {
+        //IE 6+ in 'standards compliant mode'
+        windowWidth = $document.documentElement.clientWidth;
+        windowHeight = $document.documentElement.clientHeight;
+    } else if( $document.body && ( $document.body.clientWidth || $document.body.clientHeight ) ) {
+        //IE 4 compatible
+        windowWidth = $document.body.clientWidth;
+        windowHeight = $document.body.clientHeight;
+    }
+
+    return windowHeight;
+}
